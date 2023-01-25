@@ -1,0 +1,16 @@
+.eye_icon {
+  float: right;
+  position: relative;
+  bottom: 38px;
+  margin-right: 8px;
+  z-index: 5000;
+  cursor: pointer;
+}
+.eye-icons {
+  float: right;
+  position: relative;
+  bottom: 15px;
+  margin-right: 8px;
+  z-index: 5000;
+  cursor: pointer;
+}
