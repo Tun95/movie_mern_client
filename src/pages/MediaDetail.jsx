@@ -198,7 +198,7 @@ const MediaDetail = () => {
                   {/* rate */}
                   <Divider orientation="vertical" />
                   {/* genres */}
-                  {genres.map((genre, index) => (
+                  {genres?.map((genre, index) => (
                     <Chip
                       label={genre.name}
                       variant="filled"

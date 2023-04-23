@@ -91,7 +91,7 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
           disableOnInteraction: false,
         }}
       >
-        {movies.map((movie, index) => (
+        {movies?.map((movie, index) => (
           <SwiperSlide key={index}>
             <Box
               sx={{
@@ -161,17 +161,19 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
 
                     <Divider orientation="vertical" />
                     {/* genres */}
-                    {[...movie.genre_ids].splice(0, 2).map((genreId, index) => (
-                      <Chip
-                        variant="filled"
-                        color="primary"
-                        key={index}
-                        label={
-                          genres.find((e) => e.id === genreId) &&
-                          genres.find((e) => e.id === genreId).name
-                        }
-                      />
-                    ))}
+                    {[...movie.genre_ids]
+                      .splice(0, 2)
+                      ?.map((genreId, index) => (
+                        <Chip
+                          variant="filled"
+                          color="primary"
+                          key={index}
+                          label={
+                            genres.find((e) => e.id === genreId) &&
+                            genres.find((e) => e.id === genreId).name
+                          }
+                        />
+                      ))}
                     {/* genres */}
                   </Stack>
 

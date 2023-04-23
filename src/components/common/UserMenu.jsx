@@ -1,5 +1,11 @@
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import { ListItemButton, ListItemIcon, ListItemText, Menu, Typography } from "@mui/material";
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -32,7 +38,7 @@ const UserMenu = () => {
             onClose={() => setAnchorEl(null)}
             PaperProps={{ sx: { padding: 0 } }}
           >
-            {menuConfigs.user.map((item, index) => (
+            {menuConfigs.user?.map((item, index) => (
               <ListItemButton
                 component={Link}
                 to={item.path}
@@ -40,19 +46,29 @@ const UserMenu = () => {
                 onClick={() => setAnchorEl(null)}
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText disableTypography primary={
-                  <Typography textTransform="uppercase">{item.display}</Typography>
-                } />
+                <ListItemText
+                  disableTypography
+                  primary={
+                    <Typography textTransform="uppercase">
+                      {item.display}
+                    </Typography>
+                  }
+                />
               </ListItemButton>
             ))}
             <ListItemButton
               sx={{ borderRadius: "10px" }}
               onClick={() => dispatch(setUser(null))}
             >
-              <ListItemIcon><LogoutOutlinedIcon /></ListItemIcon>
-              <ListItemText disableTypography primary={
-                <Typography textTransform="uppercase">sign out</Typography>
-              } />
+              <ListItemIcon>
+                <LogoutOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography textTransform="uppercase">sign out</Typography>
+                }
+              />
             </ListItemButton>
           </Menu>
         </>
